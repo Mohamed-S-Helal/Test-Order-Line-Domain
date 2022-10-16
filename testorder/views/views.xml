@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+
+
+    <!--        form view-->
+    <record model="ir.ui.view" id="test_order_form">
+        <field name="name">test.order.form</field>
+        <field name="model">test.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        </group>
+                    <group>
+                        <field name="line_ids" nolabel="1">
+                            <tree no_open="1" editable="True">
+                                <field name="product_id"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="test_order_action">
+            <field name="name">test_order_action</field>
+            <field name="res_model">test.order</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- menu -->
+
+        <menuitem name="test_order_menu" id="test_order_menu"
+                  action="test_order_action"
+        />
+
+    </data>
+</odoo>
